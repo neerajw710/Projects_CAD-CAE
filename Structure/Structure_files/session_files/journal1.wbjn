@@ -1,0 +1,224 @@
+# encoding: utf-8
+# 2021 R1
+SetScriptVersion(Version="21.1.216")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Edit()
+geometry1.Edit()
+geometry1.Edit()
+geometry1.Exit()
+modelComponent1.Update(AllDependencies=True)
+model1.Exit()
+model1.Edit()
+modelComponent1.Update(AllDependencies=True)
+model1.Exit()
+modelComponent1.Clean()
+model1.Edit()
+model1.Exit()
+system1.Delete()
+system2 = template1.CreateSystem()
+geometry2 = system2.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+geometry2.Exit()
+modelComponent2 = system2.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system2.GetContainer(ComponentName="Model")
+model2.Edit()
+model2.Exit()
+template2 = GetTemplate(
+    TemplateName="Explicit Dynamics",
+    Solver="AUTODYN")
+system3 = template2.CreateSystem(
+    Position="Right",
+    RelativeTo=system2)
+system2.Delete()
+favorites1 = EngData.LoadFavoriteItems()
+EngData.EnableFilter(Enable=False)
+engineeringData1 = system3.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="HIgh Speed Steel (HSS)")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp2 = matl1.GetProperty(Name="Density")
+matlProp2.Delete()
+matlProp1.Delete(Behavior="Isotropic")
+matlProp3 = matl1.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp3.SetData(
+    Index=-1,
+    Variables=["Density"],
+    Values=[["7850 [kg m^-3]"]])
+matlProp4 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp4.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["200000000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.6"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["7.88860905221012E-31"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.3"]])
+matlProp5 = matl1.CreateProperty(
+    Name="Specific Heat",
+    Definition="Constant Pressure",
+    Qualifiers={"Definition": "Constant Pressure", "Behavior": ""})
+matlProp5.Delete(Definition="Constant Pressure")
+matlProp6 = matl1.CreateProperty(
+    Name="Specific Heat",
+    Definition="Constant Pressure",
+    Qualifiers={"Definition": "Constant Pressure", "Behavior": ""})
+matlProp6.SetData(
+    Index=-1,
+    Variables=["Specific Heat"],
+    Values=[["434 [J kg^-1 C^-1]"]])
+matl1.SetColor(
+    Red=184,
+    Green=235,
+    Blue=197)
+library1 = EngData.OpenLibrary(
+    Name="Fluid Materials",
+    Source="Fluid_Materials.xml")
+library2 = EngData.CreateLibrary(
+    Name="My Materials",
+    FilePath=GetAbsoluteUserPathName("ANSYS/My materials/High Speed Steel (HSS).xml"))
+library3 = EngData.OpenLibrary(
+    Name="My Materials",
+    Source=GetAbsoluteUserPathName("ANSYS/My materials/High Speed Steel (HSS).xml"))
+matl2 = library3.CreateMaterial(Name="HIgh Speed Steel (HSS)")
+matlProp7 = matl2.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp7.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["200000000000 [Pa]"]])
+matlProp7.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.3"]])
+matlProp8 = matl2.CreateProperty(
+    Name="Specific Heat",
+    Definition="Constant Pressure",
+    Qualifiers={"Definition": "Constant Pressure", "Behavior": ""})
+matlProp8.SetData(
+    Index=-1,
+    Variables=["Specific Heat"],
+    Values=[["434 [J kg^-1 C^-1]"]])
+library3.Save()
+matl3 = engineeringData1.ImportMaterial(
+    Name="HIgh Speed Steel (HSS)",
+    Source=GetAbsoluteUserPathName("ANSYS/My materials/High Speed Steel (HSS).xml"))
+EngData.EnableFilter()
+matl1.Delete()
+matl3.DisplayName = "HIgh Speed Steel (HSS)"
+library4 = EngData.OpenLibrary(
+    Name="Explicit Materials",
+    Source="Explicit_Materials.xml")
+matl4 = engineeringData1.ImportMaterial(
+    Name="STEEL 4340",
+    Source="Explicit_Materials.xml")
+EngData.EnableFilter(Enable=False)
+geometry3 = system3.GetContainer(ComponentName="Geometry")
+geometry3.Edit()
+geometry3.Exit()
+modelComponent3 = system3.GetComponent(Name="Model")
+modelComponent3.Refresh()
+model3 = system3.GetContainer(ComponentName="Model")
+model3.Edit()
+EngData.EnableFilter()
+matl3.SetSuppression(Suppressed=True)
+matl3.SetSuppression(Suppressed=False)
+matlProp9 = matl2.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matl2.Delete()
+matl5 = library3.CreateMaterial(Name="High Speed Steel (HSS)")
+matlProp10 = matl5.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp11 = matl5.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp12 = matl3.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp12.SetData(
+    Index=-1,
+    Variables=["Density"],
+    Values=[["7850 [kg m^-3]"]])
+engineeringDataComponent1 = system3.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.Update(AllDependencies=True)
+geometryComponent1 = system3.GetComponent(Name="Geometry")
+geometryComponent1.Update(AllDependencies=True)
+modelComponent3.Update(AllDependencies=True)
+model3.Exit()
+system3.Delete()
+system4 = template1.CreateSystem()
+geometry4 = system4.GetContainer(ComponentName="Geometry")
+geometry4.Edit()
+geometry4.Exit()
+Save(Overwrite=True)
+modelComponent4 = system4.GetComponent(Name="Model")
+modelComponent4.Refresh()
+model4 = system4.GetContainer(ComponentName="Model")
+model4.Edit()
+matlProp10.SetData(
+    Index=-1,
+    Variables=["Density"],
+    Values=[["7850 [kg m^-3]"]])
+matlProp11.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["200000000000 [Pa]"]])
+matlProp11.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.3"]])
+matl6 = library3.CreateMaterial(Name="Douglas Steel")
+matlProp13 = matl6.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp13.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["13.1 [Pa]"]])
+matlProp13.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="GPa")
+matlProp13.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["1.31E-08 [GPa]"]])
+matlProp13.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.29"]])
+matlProp13.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["13.1 [GPa]"]])
+library3.Save()
+engineeringData2 = system4.GetContainer(ComponentName="Engineering Data")
+matl7 = engineeringData2.ImportMaterial(
+    Name="Douglas  Fir",
+    Source=GetAbsoluteUserPathName("ANSYS/My materials/High Speed Steel (HSS).xml"))
+EngData.EnableFilter(Enable=False)
+modelComponent4.Update(AllDependencies=True)
+Save(Overwrite=True)

@@ -1,0 +1,251 @@
+/batch
+/config,noeldb,1     ! force off writing results to database
+*get,_wallstrt,active,,time,wall
+! ANSYS input file written by Workbench version 2021 R1
+! File used for geometry attach: C:\Users\Neeraj Singh\Desktop\ANSYS Lectures\Practice\Structure_files\dp0\SYS\DM\SYS.agdb
+/title,Structure--Static Structural (A5)
+! ****** Begin Custom Load Command Snippet ******
+/COM, ACT Extensions:
+/COM,     LSDYNA, 2021.1
+/COM,     5f463412-bd3e-484b-87e7-cbc0a665e474, wbex
+/COM,
+! ****** End   Custom Load Command Snippet ******
+*DIM,_wb_ProjectScratch_dir,string,248
+_wb_ProjectScratch_dir(1) = 'C:\Users\Neeraj Singh\Desktop\ANSYS Lectures\Practice\_ProjectScratch\ScrC935\'
+*DIM,_wb_SolverFiles_dir,string,248
+_wb_SolverFiles_dir(1) = 'C:\Users\Neeraj Singh\Desktop\ANSYS Lectures\Practice\Structure_files\dp0\SYS\MECH\'
+*DIM,_wb_userfiles_dir,string,248
+_wb_userfiles_dir(1) = 'C:\Users\Neeraj Singh\Desktop\ANSYS Lectures\Practice\Structure_files\user_files\'
+/com,--- Data in consistent NMM units. See Solving Units in the help system for more information.
+/units,MPA
+/nopr
+/wb,file,start              !  signify a WB generated input file
+/prep7
+! Turn off shape checking because checks already performed inside WB mesher.
+! See help system for more information.
+SHPP,OFF,,NOWARN
+/nolist
+etcon,set             ! allow ANSYS to choose best KEYOP's for 180x elements, resets any applicable keyopt to MAPDL defaults
+/com,*********** Nodes for the whole assembly ***********
+nblock,3,,30
+(1i9,3e20.9e3)
+        1    -1.000000000E+03     1.000000000E+03     0.000000000E+00
+        2     1.000000000E+03     1.000000000E+03     0.000000000E+00
+        3     0.000000000E+00     1.000000000E+03     0.000000000E+00
+        4    -2.000000000E+03     0.000000000E+00     0.000000000E+00
+        5    -1.500000000E+03     5.000000000E+02     0.000000000E+00
+        6    -1.000000000E+03     0.000000000E+00     0.000000000E+00
+        7     0.000000000E+00     0.000000000E+00     0.000000000E+00
+        8    -5.000000000E+02     5.000000000E+02     0.000000000E+00
+        9     5.000000000E+02     5.000000000E+02     0.000000000E+00
+       10     1.000000000E+03     0.000000000E+00     0.000000000E+00
+       11     2.000000000E+03     0.000000000E+00     0.000000000E+00
+       12     1.500000000E+03     5.000000000E+02     0.000000000E+00
+       13    -1.500000000E+03     0.000000000E+00     1.000000000E+03
+       14     5.000000000E+02     0.000000000E+00     1.000000000E+03
+       15    -5.000000000E+02     0.000000000E+00     1.000000000E+03
+       16    -5.000000000E+02     1.000000000E+03     1.000000000E+03
+       17     5.000000000E+02     1.000000000E+03     1.000000000E+03
+       18    -1.250000000E+03     7.500000000E+02     7.071067812E+02
+       19    -1.750000000E+03     2.500000000E+02     7.071067812E+02
+       20    -1.000000000E+03     5.000000000E+02     1.000000000E+03
+       21    -7.500000000E+02     7.500000000E+02     7.071067812E+02
+       22    -2.500000000E+02     2.500000000E+02     7.071067812E+02
+       23     7.500000000E+02     7.500000000E+02     7.071067812E+02
+       24     2.500000000E+02     2.500000000E+02     7.071067812E+02
+       25     1.000000000E+03     5.000000000E+02     1.000000000E+03
+       26     1.250000000E+03     7.500000000E+02     7.071067812E+02
+       27     1.750000000E+03     2.500000000E+02     7.071067812E+02
+       28     1.500000000E+03     0.000000000E+00     1.000000000E+03
+-1
+/wb,elem,start            !  set before creation of elements
+/com,*********** Elements for Body 1 "Line Body" ***********
+et,1,188
+keyo,1,3,2
+eblock,19,solid,,16
+(19i9)
+        1        1        1        1        0        0        0        0        3        0        1        4        6       13
+        1        1        1        1        0        0        0        0        3        0        2        7       10       14
+        1        1        1        1        0        0        0        0        3        0        3        6        7       15
+        1        1        1        1        0        0        0        0        3        0        4        1        3       16
+        1        1        1        1        0        0        0        0        3        0        5        3        2       17
+        1        1        1        1        0        0        0        0        3        0        6        1        5       18
+        1        1        1        1        0        0        0        0        3        0        7        5        4       19
+        1        1        1        1        0        0        0        0        3        0        8        1        6       20
+        1        1        1        1        0        0        0        0        3        0        9        1        8       21
+        1        1        1        1        0        0        0        0        3        0       10        8        7       22
+        1        1        1        1        0        0        0        0        3        0       11        2        9       23
+        1        1        1        1        0        0        0        0        3        0       12        9        7       24
+        1        1        1        1        0        0        0        0        3        0       13        2       10       25
+        1        1        1        1        0        0        0        0        3        0       14        2       12       26
+        1        1        1        1        0        0        0        0        3        0       15       12       11       27
+        1        1        1        1        0        0        0        0        3        0       16       10       11       28
+-1
+!Material Id = {73F4C302-98EE-4B14-B12B-5FBE911FB5B1}
+/wb,elem,end               !  done creating elements
+/com,*********** Send User Defined Coordinate System(s) ***********
+csys,0
+toffst,273.15,  ! Temperature offset from absolute zero
+/com,*********** Set Reference Temperature ***********
+tref,22.
+/wb,mat,start              !  starting to send materials
+/com,*********** Send Materials ***********
+MP,EX,1,13100,	! tonne s^-2 mm^-1
+MP,NUXY,1,0.29,
+
+/wb,mat,end                !  done sending materials
+/com,*********** Send Beam Properties ***********
+SECTYPE,1,BEAM,RECT
+SECDATA,60.,60.
+secoffset,cent
+
+!************************* Model Summary ********************
+!Line Body,	Douglas  Fir,	matid,	1
+!************************* End Model Summary ********************
+! get the diagonal of the bounding box. Needed later for other things
+*get,_xmin,node,,mnloc,x
+*get,_ymin,node,,mnloc,y
+*get,_zmin,node,,mnloc,z
+*get,_xmax,node,,mxloc,x
+*get,_ymax,node,,mxloc,y
+*get,_zmax,node,,mxloc,z
+_ASMDIAG=(_xmax-_xmin)*(_xmax-_xmin)+(_ymax-_ymin)*(_ymax-_ymin)+(_zmax-_zmin)*(_zmax-_zmin)
+_ASMDIAG=SQRT(_ASMDIAG)
+/wb,contact,start          !  starting to send contact
+/wb,contact,end            !  done creating contacts
+/golist
+/wb,load,start             !  starting to send loads
+/com,*********** Fixed Supports ***********
+CMBLOCK,_FIXEDSU,NODE,        2
+(8i10)
+         4        11
+cmsel,s,_FIXEDSU
+d,all,all
+nsel,all
+/com,*********** Define Vertex Force Using Follower Elements ***********
+et,2,201
+keyo,2,1,1           ! Keep the direction constant
+keyo,2,2,1           ! Apply Forces only, not moment
+mat,2
+real,2
+type,2
+en,17,6
+en,18,7
+en,19,10
+r,2
+rmod,2,1,1.0,              ! FX
+mat,3
+real,3
+type,2
+en,20,6
+en,21,7
+en,22,10
+r,3
+rmod,3,2,1.0,              ! FY
+mat,4
+real,4
+type,2
+en,23,6
+en,24,7
+en,25,10
+r,4
+rmod,4,3,1.0,              ! FZ
+/gst,on,on
+fini
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, real, 0, NUM, MAX
+/go
+/wb,load,end               !  done creating loads
+/com,--- Number of total nodes = %_numnode%
+/com,--- Number of contact elements = 0
+/com,--- Number of spring elements = 0
+/com,--- Number of bearing elements = 0
+/com,--- Number of solid elements = 16
+/com,--- Number of condensed parts = 0
+/com,--- Number of total elements = %_numelem%
+*get,_wallbsol,active,,time,wall
+/com,****************************************************************************
+/com,*************************    SOLUTION       ********************************
+/com,****************************************************************************
+/solu
+antype,0                   ! static analysis
+_thickRatio=  0     ! Ratio of thick parts in the model
+eqsl,sparse,,,,,1
+cntr,print,1               ! print out contact info and also make no initial contact an error
+dmpoption,emat,no             ! Don't combine emat file for DANSYS
+dmpoption,esav,no             ! Don't combine esav file for DANSYS
+nldiag,cont,iter           ! print out contact info each equilibrium iteration
+rescontrol,,none                 ! Do not keep any restart files
+/com,****************************************************
+/com,******************* SOLVE FOR LS 1 OF 1 ****************
+esel,s,real,,2
+sfe,all,1,pres,1,0.
+esel,s,real,,3
+sfe,all,1,pres,1,-10000.
+esel,s,real,,4
+sfe,all,1,pres,1,0.
+esel,all
+/nopr
+/gopr
+/nolist
+nsub,1,1,1
+time,1.
+outres,erase
+outres,all,none
+outres,nsol,all,
+outres,rsol,all
+outres,eangl,all
+outres,etmp,all
+outres,veng,all
+outres,strs,all,
+outres,epel,all,
+outres,eppl,all,
+outres,cont,all,
+/nopr
+esel,s,type,,1
+cm,_elmisc,elem
+esel,all
+/gopr
+outres,misc,all,_elmisc
+! *********** WB SOLVE COMMAND ***********
+! check interactive state
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,ne,0,then
+/eof
+*endif
+solve
+/com *************** Write FE CONNECTORS ********* 
+CEWRITE,file,ce,,INTE
+/com,****************************************************
+/com,*************** FINISHED SOLVE FOR LS 1 *************
+*get,_wallasol,active,,time,wall
+/nopr
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX,,,INTERNAL
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, real, 0, NUM, MAX
+/gopr
+/post1
+xmlo,ENCODING,ISO-8859-1
+xmlo,parm
+/xml,parm,xml
+fini
+/gopr
+*get,_walldone,active,,time,wall
+_preptime=(_wallbsol-_wallstrt)*3600
+_solvtime=(_wallasol-_wallbsol)*3600
+_posttime=(_walldone-_wallasol)*3600
+_totaltim=(_walldone-_wallstrt)*3600
+*get,_dlbratio,active,0,solu,dlbr
+*get,_combtime,active,0,solu,comb
+/com,--- Total number of nodes = %_numnode%
+/com,--- Total number of elements = %_numelem%
+/com,--- Element load balance ratio = %_dlbratio%
+/com,--- Time to combine distributed files = %_combtime%
+/wb,file,end               ! done with WB generated input
